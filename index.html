@@ -1,66 +1,215 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Post</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desafio HTML - Post Diferente</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            line-height: 1.6;
-            color: #333;
-        }
+    body {
+      background-color: #0f172a;
+      color: #f8fafc;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+    }
 
-        h1 {
-            color: #222;
-        }
+    h1 {
+      font-size: 1.8rem;
+      color: #38bdf8;
+      text-align: center;
+    }
 
-        .imagem-post {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            display: block;
-            margin: 20px auto;
-            border-radius: 8px;
-        }
-    </style>
+    /* Estilo do Post Padrão */
+    .post-padrao {
+      background-color: #1e293b;
+      max-width: 650px;
+      width: 100%;
+      padding: 24px;
+      border-radius: 12px;
+      border: 1px solid #334155;
+    }
+
+    .post-padrao h2 {
+      margin-bottom: 8px;
+      color: #e2e8f0;
+    }
+
+    .post-padrao .meta {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .post-padrao p {
+      line-height: 1.6;
+      color: #cbd5e1;
+    }
+
+    /* Estilo do Post Diferente (Estrutura Reorganizada) */
+    .post-diferente {
+      background: linear-gradient(145deg, #1e1b4b, #1e293b);
+      max-width: 650px;
+      width: 100%;
+      border-radius: 16px;
+      border: 2px solid #818cf8;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    /* 1. Grupo superior: Imagem e Citação lado a lado */
+    .grupo-topo {
+      display: flex;
+      flex-wrap: wrap;
+      background-color: #312e81;
+    }
+
+    .grupo-topo figure {
+      flex: 1 1 250px;
+      margin: 0;
+    }
+
+    .grupo-topo svg {
+      width: 100%;
+      height: 100%;
+      min-height: 180px;
+      display: block;
+    }
+
+    .grupo-topo blockquote {
+      flex: 1 1 250px;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: #e0e7ff;
+      border-left: 4px solid #38bdf8;
+    }
+
+    /* 2. Miolo do post: Título aparece DEPOIS da mídia */
+    .corpo-invertido {
+      padding: 24px;
+    }
+
+    .badge {
+      background-color: #38bdf8;
+      color: #0f172a;
+      font-weight: bold;
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      text-transform: uppercase;
+    }
+
+    .corpo-invertido h2 {
+      margin: 12px 0;
+      font-size: 1.5rem;
+      color: #ffffff;
+    }
+
+    .corpo-invertido p {
+      line-height: 1.6;
+      color: #cbd5e1;
+      margin-bottom: 16px;
+    }
+
+    /* Tag interativa nativa do HTML */
+    details {
+      background-color: rgba(15, 23, 42, 0.6);
+      padding: 12px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      color: #93c5fd;
+    }
+
+    details p {
+      margin-top: 10px;
+      margin-bottom: 0;
+      font-size: 0.9rem;
+    }
+
+    /* 3. Rodapé com metadados no final */
+    .rodape-post {
+      background-color: #0f172a;
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: #94a3b8;
+      border-top: 1px solid #334155;
+    }
+  </style>
 </head>
-
 <body>
 
-    <main>
-        <article>
-            <h1>Como a tecnologia faz parte do nosso dia a dia</h1>
+  <h1>Meu Feed de Experimentos HTML</h1>
 
-            <img 
-                class="imagem-post"
-                src="https://images.unsplash.com/photo-1499750310107-5fef28a66643"
-                alt="Pessoa utilizando um computador para trabalhar, representando a presença da tecnologia em nossas atividades diárias"
-            >
+  <!-- POST 1: Estrutura comum -->
+  <article class="post-padrao">
+    <h2>Post Tradicional</h2>
+    <span class="meta">Publicado hoje • Estrutura comum</span>
+    <p>Neste post tudo segue a ordem clássica: primeiro o título, depois a data e por último o texto principal.</p>
+  </article>
 
-            <p>
-                A tecnologia está cada vez mais presente em nosso cotidiano.
-                Utilizamos computadores, celulares e diversos recursos digitais
-                para estudar, trabalhar, conversar e realizar tarefas.
-            </p>
+  <!-- POST 2: Estrutura alterada e reagrupada -->
+  <article class="post-diferente">
+    
+    <!-- Mudança 1: Imagem e citação agrupadas no topo antes do título -->
+    <div class="grupo-topo">
+      <figure>
+        <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#38bdf8" />
+              <stop offset="100%" stop-color="#a855f7" />
+            </linearGradient>
+          </defs>
+          <rect width="400" height="220" fill="url(#grad)" />
+          <circle cx="200" cy="110" r="60" fill="rgba(255,255,255,0.2)" />
+          <text x="50%" y="52%" dominant-baseline="middle" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="bold">
+            &lt;HTML Criativo /&gt;
+          </text>
+        </svg>
+      </figure>
 
-            <p>
-                Aprender sobre tecnologia e programação pode abrir novas
-                oportunidades e ajudar a desenvolver habilidades importantes
-                para o futuro.
-            </p>
+      <blockquote>
+        "Mudar a ordem das tags no HTML transforma completamente o visual sem precisar complicar o código."
+      </blockquote>
+    </div>
 
-            <p>
-                Por isso, estudar e praticar são passos importantes para
-                compreender melhor o mundo digital e aproveitar as
-                possibilidades que a tecnologia oferece.
-            </p>
-        </article>
-    </main>
+    <!-- Mudança 2: Título e texto agrupados no meio -->
+    <div class="corpo-invertido">
+      <span class="badge">Estrutura Invertida</span>
+      <h2>Um Post Fora do Padrão</h2>
+      <p>
+        Aqui a mídia e a citação vêm antes mesmo do título aparecer. Além disso, usamos um bloco interativo logo abaixo para esconder detalhes extras.
+      </p>
+
+      <details>
+        <summary>Clique para ver o que foi alterado neste HTML</summary>
+        <p>1. Agrupamos figure + blockquote dentro de uma div flexível.<br>
+           2. Jogamos o h2 para o meio do card.<br>
+           3. Movemos o autor e a data para o footer no final.</p>
+      </details>
+    </div>
+
+    <!-- Mudança 3: Autor e data movidos para o rodapé -->
+    <footer class="rodape-post">
+      <span>Autor: <strong>Estudante Dev</strong></span>
+      <span>12/11/2026</span>
+    </footer>
+
+  </article>
 
 </body>
 </html>
